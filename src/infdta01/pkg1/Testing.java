@@ -96,6 +96,6 @@ public class Testing {
 
         UserPreference calc2 = new UserPreference("/Users/isaacdecuba/NetBeansProjects/DataScience/src/infdta01/pkg1/ItemItem.txt");
         SlopeOne slopeOne = new SlopeOne(calc2);
-        System.out.println("Dev" + slopeOne.calculatePrediction(2, 103));
+        System.out.println("Dev: " + slopeOne.calculatePrediction(2, 103));
     }
 }
