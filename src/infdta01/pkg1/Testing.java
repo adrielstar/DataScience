@@ -1,7 +1,6 @@
 package infdta01.pkg1;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -19,8 +18,8 @@ public class Testing {
 
         int userChoiceA = 3;
         int userChoiceB = 4;
-        int itemChoiceA = 101;
-        int itemChoiceB = 106;
+        int itemChoiceA = 103;
+        int itemChoiceB = 102;
         int totalClusters = 2;
 
         Map<Integer, Double> userA = calc.getUser(userChoiceA).getRatedItems();
@@ -54,13 +53,13 @@ public class Testing {
         System.out.println("Cosine: " + cosine.getCosine());
 
         System.out.println("-------------- " + itemChoiceA + " --------------");
-        for (Map.Entry<Integer, User> entry : calc.treemap.entrySet()) {
+        for (Map.Entry<Integer, User> entry : calc.mUserPreference.entrySet()) {
             if (entry.getValue().isRated(itemChoiceA)) {
                 System.out.println("List for item: " + itemChoiceA + " >> " + entry.getValue().getRating(itemChoiceA));
             }
         }
         System.out.println("-------------- " + itemChoiceB + " --------------");
-        for (Map.Entry<Integer, User> entry : calc.treemap.entrySet()) {
+        for (Map.Entry<Integer, User> entry : calc.mUserPreference.entrySet()) {
             if (entry.getValue().isRated(itemChoiceB)) {
                 System.out.println("List for item: " + itemChoiceB + " >> " + entry.getValue().getRating(itemChoiceB));
             }
@@ -68,7 +67,7 @@ public class Testing {
 
         int total = 0;
         System.out.println("-------------- both --------------");
-        for (Map.Entry<Integer, User> entry : calc.treemap.entrySet()) {
+        for (Map.Entry<Integer, User> entry : calc.mUserPreference.entrySet()) {
             if (entry.getValue().bothRated(itemChoiceA,itemChoiceB)) {
                 System.out.println("User: " + entry.getKey());
                 System.out.println("List for item: " + itemChoiceA + " >> " + entry.getValue().getRating(itemChoiceA));
@@ -83,7 +82,7 @@ public class Testing {
         kmeans.setTotalData(total);
         kmeans.sample = new double[total][2];
 
-        for (Map.Entry<Integer, User> entry : calc.treemap.entrySet()) {
+        for (Map.Entry<Integer, User> entry : calc.mUserPreference.entrySet()) {
             if (entry.getValue().bothRated(itemChoiceA,itemChoiceB)) {
                 kmeans.sample[sampleNumber][0] = entry.getValue().getRating(itemChoiceA);
                 kmeans.sample[sampleNumber][1] = entry.getValue().getRating(itemChoiceB);
@@ -94,5 +93,9 @@ public class Testing {
         Kmeans.initialize();
         kmeans.kMeanCluster();
         kmeans.printDetails();
+
+        UserPreference calc2 = new UserPreference("/Users/isaacdecuba/NetBeansProjects/DataScience/src/infdta01/pkg1/ItemItem.txt");
+        SlopeOne slopeOne = new SlopeOne(calc2);
+        System.out.println("Dev" + slopeOne.calculatePrediction(2, 103));
     }
 }

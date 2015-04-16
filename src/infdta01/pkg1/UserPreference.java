@@ -11,10 +11,10 @@ import java.util.TreeMap;
  */
 public class UserPreference {
 
-    public TreeMap<Integer, User> treemap;
+    public TreeMap<Integer, User> mUserPreference;
 
     public UserPreference(String location) throws FileNotFoundException {
-        treemap = new TreeMap<>();
+        mUserPreference = new TreeMap<>();
         this.fillData(location);
     }
 
@@ -40,24 +40,24 @@ public class UserPreference {
     }
 
     public void addUserAndInfo(int userId, int itemId, double rating) {
-        if (treemap.containsKey(userId)) {
-            treemap.get(userId).setItemAndRating(itemId, rating);
+        if (mUserPreference.containsKey(userId)) {
+            mUserPreference.get(userId).setItemAndRating(itemId, rating);
             return;
         }
 
         User user = new User(userId);
-        treemap.put(userId, user);
+        mUserPreference.put(userId, user);
         this.addDetails(user, itemId, rating);
     }
 
     public void printUsers() {
-        System.out.println("UserList size " + treemap.size());
-        for (Map.Entry<Integer, User> entry : treemap.entrySet()) {
+        System.out.println("UserList size " + mUserPreference.size());
+        for (Map.Entry<Integer, User> entry : mUserPreference.entrySet()) {
             System.out.println("index: " + entry.getKey() + " User Id: " + entry.getValue().getUserId());
         }
     }
 
     public User getUser(int userId) {
-        return treemap.get(userId);
+        return mUserPreference.get(userId);
     }
 }
