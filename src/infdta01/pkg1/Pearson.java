@@ -7,7 +7,7 @@ import java.util.Map;
  *
  * @author isaacdecuba
  */
-public class Pearson {
+public class Pearson implements Similarity{
 
     public double pearson;
 
@@ -23,11 +23,16 @@ public class Pearson {
         this.filteredPersonB = new HashMap<>();
     }
 
+    @Override
+    public double calculate() {
+        return 0;
+    }
+
     /**
      * Calculates the first part of the numeration
      *
-     * @param array ratingPersonA
-     * @param array ratingPersonB
+     * @param ratingPersonA
+     * @param ratingPersonB
      * @return double result
      */
     private double calcNumeratorOne(double[] ratingPersonA, double[] ratingPersonB) {
@@ -44,8 +49,8 @@ public class Pearson {
     /**
      * Calculates the second part of the numeration
      *
-     * @param array ratingPersonA
-     * @param array ratingPersonB
+     * @param ratingPersonA
+     * @param ratingPersonB
      * @return double result
      */
     private double calcNumeratorTwo(double[] ratingPersonA, double[] ratingPersonB) {
@@ -61,8 +66,8 @@ public class Pearson {
     /**
      * Calculates numeration
      *
-     * @param array ratingPersonA
-     * @param array ratingPersonB
+     * @param ratingPersonA
+     * @param ratingPersonB
      * @return double result
      */
     private double calcNumeration(double[] ratingPersonA, double[] ratingPersonB) {
@@ -78,7 +83,7 @@ public class Pearson {
     /**
      * Calculates the denominator of a specific array
      *
-     * @param array ratingPerson
+     * @param ratingPerson
      * @return double result
      */
     private double calcDenominator(double[] ratingPerson) {
@@ -97,7 +102,7 @@ public class Pearson {
     /**
      * Calculates the sum of a specific array
      *
-     * @param array ratingPerson
+     * @param ratingPerson
      * @return double sum
      */
     private double calcSumArray(double[] ratingPerson) {

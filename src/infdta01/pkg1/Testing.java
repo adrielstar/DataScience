@@ -14,9 +14,11 @@ public class Testing {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String args[]) throws FileNotFoundException {
-        UserPreference calc = new UserPreference("/Users/isaacdecuba/NetBeansProjects/DataScience/src/infdta01/pkg1/UserItem.txt");
+//        UserPreference calc = new UserPreference("/Users/isaacdecuba/NetBeansProjects/DataScience/src/infdta01/pkg1/UserItem.txt");
+//        UserPreference calc = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/UserItem.txt");
+        UserPreference calc = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/u.data");
 
-        int userChoiceA = 3;
+        int userChoiceA = 100;
         int userChoiceB = 4;
         int itemChoiceA = 103;
         int itemChoiceB = 102;
@@ -94,8 +96,11 @@ public class Testing {
         kmeans.kMeanCluster();
         kmeans.printDetails();
 
-        UserPreference calc2 = new UserPreference("/Users/isaacdecuba/NetBeansProjects/DataScience/src/infdta01/pkg1/ItemItem.txt");
-        SlopeOne slopeOne = new SlopeOne(calc2);
+//        UserPreference calc2 = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/ItemItem.txt");
+//        SlopeOne slopeOne = new SlopeOne(calc2);
+//        System.out.println("Dev: " + slopeOne.calculatePrediction(2, 103));
+
+        SlopeOne slopeOne = new SlopeOne(calc);
         System.out.println("Dev: " + slopeOne.calculatePrediction(2, 103));
     }
 }
