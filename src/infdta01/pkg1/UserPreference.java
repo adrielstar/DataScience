@@ -25,8 +25,8 @@ public class UserPreference {
 
         while (read.hasNextLine()) {
             String line = read.nextLine();
-//            String[] tokens = line.split(",", -1);
-            String[] tokens = line.split("\t", -1);
+            String[] tokens = line.split(",", -1);
+//            String[] tokens = line.split("\t", -1);
 
             int aUserId = Integer.parseInt(tokens[0]);
             int aItemId = Integer.parseInt(tokens[1]);

@@ -15,13 +15,13 @@ public class Testing {
      */
     public static void main(String args[]) throws FileNotFoundException {
 //        UserPreference calc = new UserPreference("/Users/isaacdecuba/NetBeansProjects/DataScience/src/infdta01/pkg1/UserItem.txt");
-//        UserPreference calc = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/UserItem.txt");
-        UserPreference calc = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/u.data");
+        UserPreference calc = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/UserItem.txt");
+//        UserPreference calc = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/u.data");
 
-        int userChoiceA = 100;
-        int userChoiceB = 4;
-        int itemChoiceA = 103;
-        int itemChoiceB = 102;
+        int userChoiceA = 1;
+        int userChoiceB = 2;
+        int itemChoiceA = 101;
+        int itemChoiceB = 106;
         int totalClusters = 2;
 
         Map<Integer, Double> userA = calc.getUser(userChoiceA).getRatedItems();

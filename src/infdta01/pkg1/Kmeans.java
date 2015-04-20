@@ -1,9 +1,6 @@
 package infdta01.pkg1;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Kmeans {
     public double sample[][];
@@ -16,11 +13,7 @@ public class Kmeans {
 
     public Kmeans(int numCluster) {
         euclidean = new Euclidean();
-        setNumClusters(numCluster);
-    }
-
-    public final void setNumClusters(int number) {
-        mNumberOfCluster = number;
+        mNumberOfCluster = numCluster;
     }
 
     public final void setTotalData(int total) {
@@ -34,10 +27,12 @@ public class Kmeans {
     public static void initialize() {
         System.out.println("Centroids initialized at:");
         // calculate centroid with Euclidean distance
-        centroids.add(new Centroid(1.0, 2.0)); // lowest set.
-        centroids.add(new Centroid(3.0, 5.0)); // highest set.
+        centroids.add(new Centroid(2.0, 2.0)); // lowest set.
+        centroids.add(new Centroid(2.0, 4.0)); // highest set.
+//        centroids.add(new Centroid(3.0, 5.0));
         System.out.println("     (" + centroids.get(0).getX() + ", " + centroids.get(0).getY() + ")");
         System.out.println("     (" + centroids.get(1).getX() + ", " + centroids.get(1).getY() + ")");
+//        System.out.println("     (" + centroids.get(2).getX() + ", " + centroids.get(2).getY() + ")");
         System.out.print("\n");
     }
 
