@@ -2,10 +2,6 @@ package infdta01.pkg1;
 
 import java.util.Map;
 
-/**
- *
- * @author isaacdecuba
- */
 public class Filter {
 
     private final double[] ratingPersonA;

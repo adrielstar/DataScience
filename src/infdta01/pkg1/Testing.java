@@ -3,10 +3,6 @@ package infdta01.pkg1;
 import java.io.FileNotFoundException;
 import java.util.Map;
 
-/**
- *
- * @author isaacdecuba
- */
 public class Testing {
 
     /**
@@ -14,9 +10,9 @@ public class Testing {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String args[]) throws FileNotFoundException {
-//        UserPreference calc = new UserPreference("/Users/isaacdecuba/NetBeansProjects/DataScience/src/infdta01/pkg1/UserItem.txt");
-        UserPreference calc = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/UserItem.txt");
-//        UserPreference calc = new UserPreference("/home/isaac/IdeaProjects/DataScience/src/infdta01/pkg1/u.data");
+//        UserPreference calc = new UserPreference("UserItem.txt");
+        UserPreference calc = new UserPreference("UserItem.txt");
+//        UserPreference calc = new UserPreference("u.data");
 
         int userChoiceA = 1;
         int userChoiceB = 2;

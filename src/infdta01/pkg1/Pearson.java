@@ -3,10 +3,6 @@ package infdta01.pkg1;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author isaacdecuba
- */
 public class Pearson implements Similarity{
 
     public double pearson;

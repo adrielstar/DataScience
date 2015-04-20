@@ -2,13 +2,9 @@ package infdta01.pkg1;
 
 import java.util.Map;
 
-/**
- *
- * @author isaacdecuba
- */
 public class Euclidean {
 
-    private double euclidean;
+    private double mEuclidean;
 
     /**
      * Calculates the Euclidean between the 2 persons in the parameters
@@ -28,7 +24,7 @@ public class Euclidean {
         for (int i = 0; i < ratingPersonA.length; i++) {
             result += Math.pow(Math.abs(ratingPersonA[i] - ratingPersonX[i]), 2);
         }
-        result = euclidean = Math.sqrt(result);
+        result = mEuclidean = Math.sqrt(result);
         return result;
     }
     
@@ -39,10 +35,10 @@ public class Euclidean {
      * @return double distance
      */
     public double calcEuclidean(Data d, Centroid c) {
-        return euclidean = Math.sqrt(Math.pow((c.getY() - d.getY()), 2) + Math.pow((c.getX() - d.getX()), 2));
+        return mEuclidean = Math.sqrt(Math.pow((c.getY() - d.getY()), 2) + Math.pow((c.getX() - d.getX()), 2));
     }
 
     public double getEuclidean() {
-        return this.euclidean;
+        return this.mEuclidean;
     }
 }

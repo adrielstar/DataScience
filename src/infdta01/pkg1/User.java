@@ -3,10 +3,6 @@ package infdta01.pkg1;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- *
- * @author isaac
- */
 public class User {
 
     public final int userId;

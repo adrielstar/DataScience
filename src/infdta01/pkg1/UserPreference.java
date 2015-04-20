@@ -6,9 +6,6 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-/**
- * @author isaacdecuba
- */
 public class UserPreference {
 
     public TreeMap<Integer, User> mUserPreference;
