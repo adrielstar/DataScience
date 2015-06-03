@@ -15,6 +15,12 @@ public class UserPreference {
         this.fillData(location);
     }
 
+    /**
+     * Read file from location and fills the data from file into TreeMap
+     *
+     * @param location
+     * @throws FileNotFoundException
+     */
     public final void fillData(String location) throws FileNotFoundException {
         String fileName = location;
         File file = new File(fileName);
@@ -33,10 +39,24 @@ public class UserPreference {
         }
     }
 
+    /**
+     * Add a new item and rating to a user object
+     *
+     * @param user
+     * @param itemId
+     * @param rating
+     */
     public void addDetails(User user, int itemId, double rating) {
         user.setItemAndRating(itemId, rating);
     }
 
+    /**
+     * Add a new user if it doesn't exists to the mUserPreference TreeMap and set a item with rating to that user object
+     *
+     * @param userId
+     * @param itemId
+     * @param rating
+     */
     public void addUserAndInfo(int userId, int itemId, double rating) {
         if (mUserPreference.containsKey(userId)) {
             mUserPreference.get(userId).setItemAndRating(itemId, rating);
@@ -55,6 +75,12 @@ public class UserPreference {
         }
     }
 
+    /**
+     * Get user object from the mUserPreference TreeMap
+     *
+     * @param userId
+     * @return
+     */
     public User getUser(int userId) {
         return mUserPreference.get(userId);
     }

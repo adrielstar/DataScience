@@ -40,6 +40,7 @@ public class User {
     
     /**
      * Get the rating of item
+     *
      * @param itemId
      * @return 
      */
@@ -56,6 +57,13 @@ public class User {
         return false;
     }
 
+    /**
+     * Check if both items are rated
+     *
+     * @param itemA
+     * @param itemB
+     * @return boolean
+     */
     public boolean bothRated(int itemA, int itemB) {
         if (isRated(itemA) && isRated(itemB)) {
             return true;
