@@ -3,13 +3,8 @@ package infdta01.pkg1;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Pearson implements Similarity{
-
+public class Pearson {
     public double pearson;
-
-    // persons to compare
-    public double[] personA;
-    public double[] personB;
 
     public Map<Integer, Double> filteredPersonA;
     public Map<Integer, Double> filteredPersonB;
@@ -17,11 +12,6 @@ public class Pearson implements Similarity{
     public Pearson() {
         this.filteredPersonA = new HashMap<>();
         this.filteredPersonB = new HashMap<>();
-    }
-
-    @Override
-    public double calculate() {
-        return 0;
     }
 
     /**
