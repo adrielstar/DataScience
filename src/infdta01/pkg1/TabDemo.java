@@ -20,6 +20,7 @@ public class TabDemo implements ActionListener{
     protected JTextArea resultTextArea;
     UserPreference uP;
     JComboBox comboBox;
+    JComboBox methodBox;
 
     public void addComponentToPane(Container pane) {
         JTabbedPane tabbedPane = new JTabbedPane();
@@ -37,11 +38,14 @@ public class TabDemo implements ActionListener{
             }
         };
 
+        /**
+         * Dataset dropdown
+         */
         String workingDir = System.getProperty("user.dir");
         File folder = new File(workingDir);
         File[] listOfFiles = folder.listFiles();
 
-        card1.add(new JLabel("Please choose which dataset to use:"));
+        card1.add(new JLabel("Dataset: "));
         DefaultComboBoxModel fileNameDropdown = new DefaultComboBoxModel();
 
         fileNameDropdown.addElement(null);
@@ -56,6 +60,21 @@ public class TabDemo implements ActionListener{
         comboBox = new JComboBox(fileNameDropdown);
         card1.add(comboBox);
         comboBox.addActionListener(this);
+
+        /**
+         * Method dropdown
+         */
+        JLabel methodLabel = new JLabel("Method: ");
+        DefaultComboBoxModel methodDropdown = new DefaultComboBoxModel();
+        String[] listOfMethods = {null, "Pearson", "Euclidean", "Cosine", "Project Rating", "Nearest Neighbor"};
+
+        for (int i = 0; i < listOfMethods.length; i++) {
+            methodDropdown.addElement(listOfMethods[i]);
+        }
+
+        methodBox = new JComboBox(methodDropdown);
+        card1.add(methodBox);
+        methodBox.addActionListener(this);
 
         calculateButton = new JButton("Calculate");
         calculateButton.setMnemonic(KeyEvent.VK_M);
