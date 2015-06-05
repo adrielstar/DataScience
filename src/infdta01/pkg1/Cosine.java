@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * @author isaacdecuba
  */
-public class Cosine {
+public class Cosine implements Similarity {
 
     private double cosine;
 
@@ -13,14 +13,8 @@ public class Cosine {
     public double[] personA;
     public double[] personB;
 
-    /**
-     * Calculates the distance between 2 persons using cosine
-     *
-     * @param personARatedItems
-     * @param personBRatedItems
-     * @return cosine
-     */
-    public double calcCosine(Map<Integer, Double> personARatedItems, Map<Integer, Double> personBRatedItems) {
+    @Override
+    public double calculate(Map<Integer, Double> personARatedItems, Map<Integer, Double> personBRatedItems) {
 
         if (personARatedItems.size() > personBRatedItems.size()) {
             personA = new double[personARatedItems.size() + 1];

@@ -79,7 +79,7 @@ public class UserPreference {
      * Get user object from the mUserPreference TreeMap
      *
      * @param userId
-     * @return
+     * @return User
      */
     public User getUser(int userId) {
         return mUserPreference.get(userId);
