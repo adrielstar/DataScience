@@ -1,3 +1,10 @@
+/**
+ * Pearson class containing similarity calculation between two users
+ *
+ * @author Isaac de Cuba (isaacjdecuba@gmail.com)
+ * @studentnr 0847325
+ * @since 05-06-2015
+ */
 package infdta01.pkg1;
 
 import java.util.Map;
@@ -96,12 +103,5 @@ public class Pearson implements Similarity {
         double denominator = this.calcDenominator(ratingPersonA) * this.calcDenominator(ratingPersonB);
 
         return mPearson = numeration / denominator;
-    }
-
-    /**
-     * Prints the Pearson of this class
-     */
-    public void printPearson() {
-        System.out.println("Pearson: " + mPearson);
     }
 }

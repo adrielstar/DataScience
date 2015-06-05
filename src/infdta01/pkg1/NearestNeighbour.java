@@ -1,5 +1,12 @@
-package infdta01.pkg1;
+/**
+ * NearestNeighbour class which calculates the nearest neighbour
+ *
+ * @author Isaac de Cuba (isaacjdecuba@gmail.com)
+ * @studentnr 0847325
+ * @since 05-06-2015
+ */
 
+package infdta01.pkg1;
 
 import java.util.*;
 
@@ -82,12 +89,8 @@ public class NearestNeighbour {
         }
 
         for (Map.Entry<User, Double> entry : mNeighbours.entrySet()) {
-            mProjectedRating += entry.getKey().getRating(mItemId) * (mDistance.getDistance(mUserPreference, mUser.getUserId(), entry.getKey().getUserId(), mCalcDistanceMethod)/dist);
+            mProjectedRating += entry.getKey().getRating(mItemId) * (mDistance.getDistance(mUserPreference, mUser.getUserId(), entry.getKey().getUserId(), mCalcDistanceMethod) / dist);
         }
         return mProjectedRating;
-    }
-
-    public void printProjectedRating() {
-        System.out.println("Projected rating: " + mProjectedRating);
     }
 }

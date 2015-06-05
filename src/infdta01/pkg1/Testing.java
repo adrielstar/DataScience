@@ -1,5 +1,6 @@
 package infdta01.pkg1;
 
+import javax.jws.soap.SOAPBinding;
 import javax.swing.JFrame;
 import java.io.FileNotFoundException;
 import java.util.Map;
@@ -15,6 +16,15 @@ public class Testing {
 //        UserPreference calc = new UserPreference("UserItem.txt");
         UserPreference calc = new UserPreference("UserItem.txt");
 //        UserPreference calc = new UserPreference("u.data");
+
+        for (Map.Entry<Integer, User> user: calc.mUserPreference.entrySet()) {
+            String key = user.getKey().toString();
+            String value = user.getValue().toString();
+
+            System.out.println("Key: " + key + " Value:" + value);
+        }
+
+        System.out.println("");
 
         int userChoiceA = 1;
         int userChoiceB = 2;

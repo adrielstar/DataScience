@@ -56,7 +56,7 @@ public class Kmeans {
             dataSet.add(newData);
             minimum = bigNumber;
             for (int i = 0; i < mNumberOfCluster; i++) {
-                distance = euclidean.calcEuclidean(newData, centroids.get(i));
+                distance = euclidean.calculate(newData, centroids.get(i));
                 if (distance < minimum) {
                     minimum = distance;
                     cluster = i;
@@ -110,7 +110,7 @@ public class Kmeans {
             for (Data tempData : dataSet) {
                 minimum = bigNumber;
                 for (int j = 0; j < mNumberOfCluster; j++) {
-                    distance = euclidean.calcEuclidean(tempData, centroids.get(j));
+                    distance = euclidean.calculate(tempData, centroids.get(j));
                     if (distance < minimum) {
                         minimum = distance;
                         cluster = j;

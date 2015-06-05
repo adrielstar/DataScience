@@ -1,13 +1,15 @@
+/**
+ * Cosine class containing similarity calculation between two users
+ *
+ * @author Isaac de Cuba (isaacjdecuba@gmail.com)
+ * @studentnr 0847325
+ * @since 05-06-2015
+ */
 package infdta01.pkg1;
 
 import java.util.Map;
 
-/**
- * @author isaacdecuba
- */
 public class Cosine implements Similarity {
-
-    private double cosine;
 
     // persons to compare
     public double[] personA;
@@ -51,10 +53,6 @@ public class Cosine implements Similarity {
             resultM += personA[i] * personB[i];
         }
 
-        return cosine = resultM / (resultA * resultB);
-    }
-
-    public double getCosine() {
-        return this.cosine;
+        return resultM / (resultA * resultB);
     }
 }
