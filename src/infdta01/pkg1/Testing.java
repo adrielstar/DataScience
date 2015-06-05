@@ -1,5 +1,7 @@
 package infdta01.pkg1;
 
+import javax.jws.soap.SOAPBinding;
+import javax.swing.JFrame;
 import java.io.FileNotFoundException;
 import java.util.Map;
 
@@ -10,9 +12,19 @@ public class Testing {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String args[]) throws FileNotFoundException {
+
 //        UserPreference calc = new UserPreference("UserItem.txt");
         UserPreference calc = new UserPreference("UserItem.txt");
 //        UserPreference calc = new UserPreference("u.data");
+
+        for (Map.Entry<Integer, User> user: calc.mUserPreference.entrySet()) {
+            String key = user.getKey().toString();
+            String value = user.getValue().toString();
+
+            System.out.println("Key: " + key + " Value:" + value);
+        }
+
+        System.out.println("");
 
         int userChoiceA = 1;
         int userChoiceB = 2;
@@ -38,17 +50,27 @@ public class Testing {
 
         System.out.println("\n");
 
-        Pearson pearsonCalculation = new Pearson();
-        pearsonCalculation.calcPearson(calc.getUser(userChoiceA).getRatedItems(), calc.getUser(userChoiceB).getRatedItems());
-        pearsonCalculation.printPearson();
+        Distance distance = new Distance();
+        double pearson = distance.getDistance(calc, userChoiceA, userChoiceB, "PEARSON");
+        distance.printDistance(calc, userChoiceA, userChoiceB, "PEARSON");
 
-        Euclidean euclideanCalculation = new Euclidean();
-        euclideanCalculation.calcEuclidean(calc.getUser(userChoiceA).getRatedItems(), calc.getUser(userChoiceB).getRatedItems());
-        System.out.println("Euclidean: " + euclideanCalculation.getEuclidean());
+        double euclidean = distance.getDistance(calc, userChoiceA, userChoiceB, "EUCLIDEAN");
+        distance.printDistance(calc, userChoiceA, userChoiceB, "EUCLIDEAN");
 
-        Cosine cosine = new Cosine();
-        cosine.calcCosine(calc.getUser(userChoiceA).getRatedItems(), calc.getUser(userChoiceB).getRatedItems());
-        System.out.println("Cosine: " + cosine.getCosine());
+        double cosine = distance.getDistance(calc, userChoiceA, userChoiceB, "COSINE");
+        distance.printDistance(calc, userChoiceA, userChoiceB, "COSINE");
+
+//        Pearson pearsonCalculation = new Pearson();
+//        pearsonCalculation.calcPearson(calc.getUser(userChoiceA).getRatedItems(), calc.getUser(userChoiceB).getRatedItems());
+//        pearsonCalculation.printPearson();
+//
+//        Euclidean euclideanCalculation = new Euclidean();
+//        euclideanCalculation.calcEuclidean(calc.getUser(userChoiceA).getRatedItems(), calc.getUser(userChoiceB).getRatedItems());
+//        System.out.println("Euclidean: " + euclideanCalculation.getEuclidean());
+//
+//        Cosine cosine = new Cosine();
+//        cosine.calcCosine(calc.getUser(userChoiceA).getRatedItems(), calc.getUser(userChoiceB).getRatedItems());
+//        System.out.println("Cosine: " + cosine.getCosine());
 
         System.out.println("-------------- " + itemChoiceA + " --------------");
         for (Map.Entry<Integer, User> entry : calc.mUserPreference.entrySet()) {
@@ -98,5 +120,8 @@ public class Testing {
 
         SlopeOne slopeOne = new SlopeOne(calc);
         System.out.println("Dev: " + slopeOne.calculatePrediction(2, 103));
+
+        NearestNeighbour nn = new NearestNeighbour(calc, 1, 103, 0.35, 3, "PEARSON");
+        nn.projectRating();
     }
 }

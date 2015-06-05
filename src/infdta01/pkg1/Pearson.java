@@ -1,28 +1,17 @@
+/**
+ * Pearson class containing similarity calculation between two users
+ *
+ * @author Isaac de Cuba (isaacjdecuba@gmail.com)
+ * @studentnr 0847325
+ * @since 05-06-2015
+ */
 package infdta01.pkg1;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class Pearson implements Similarity{
+public class Pearson implements Similarity {
 
-    public double pearson;
-
-    // persons to compare
-    public double[] personA;
-    public double[] personB;
-
-    public Map<Integer, Double> filteredPersonA;
-    public Map<Integer, Double> filteredPersonB;
-
-    public Pearson() {
-        this.filteredPersonA = new HashMap<>();
-        this.filteredPersonB = new HashMap<>();
-    }
-
-    @Override
-    public double calculate() {
-        return 0;
-    }
+    public double mPearson;
 
     /**
      * Calculates the first part of the numeration
@@ -51,12 +40,10 @@ public class Pearson implements Similarity{
      */
     private double calcNumeratorTwo(double[] ratingPersonA, double[] ratingPersonB) {
         int n = ratingPersonA.length;
-        double result;
         double sumA = this.calcSumArray(ratingPersonA);
         double sumB = this.calcSumArray(ratingPersonB);
 
-        result = (sumA * sumB) / n;
-        return result;
+        return (sumA * sumB) / n;
     }
 
     /**
@@ -67,13 +54,10 @@ public class Pearson implements Similarity{
      * @return double result
      */
     private double calcNumeration(double[] ratingPersonA, double[] ratingPersonB) {
-        double result;
         double numeratorOne = this.calcNumeratorOne(ratingPersonA, ratingPersonB);
         double numeratorTwo = this.calcNumeratorTwo(ratingPersonA, ratingPersonB);
 
-        result = numeratorOne - numeratorTwo;
-
-        return result;
+        return numeratorOne - numeratorTwo;
     }
 
     /**
@@ -84,15 +68,13 @@ public class Pearson implements Similarity{
      */
     private double calcDenominator(double[] ratingPerson) {
         int n = ratingPerson.length;
-        double result = 0.0;
         double sumA = 0.0;
 
         for (int i = 0; i < n; i++) {
             sumA += Math.pow(ratingPerson[i], 2);
         }
 
-        result = Math.sqrt(sumA - (Math.pow(this.calcSumArray(ratingPerson), 2) / n));
-        return result;
+        return Math.sqrt(sumA - (Math.pow(this.calcSumArray(ratingPerson), 2) / n));
     }
 
     /**
@@ -111,30 +93,15 @@ public class Pearson implements Similarity{
         return sum;
     }
 
-    /**
-     * Calculates the Pearson between 2 arrays
-     *
-     * @param personARatedItems
-     * @param personBRatedItems
-     * @return
-     */
-    public double calcPearson(Map<Integer, Double> personARatedItems, Map<Integer, Double> personBRatedItems) {
+    @Override
+    public double calculate(Map<Integer, Double> personARatedItems, Map<Integer, Double> personBRatedItems) {
         Filter filter = new Filter(personARatedItems, personBRatedItems);
         double[] ratingPersonA = filter.getPersonA();
         double[] ratingPersonB = filter.getPersonB();
 
-        double result;
         double numeration = this.calcNumeration(ratingPersonA, ratingPersonB);
         double denominator = this.calcDenominator(ratingPersonA) * this.calcDenominator(ratingPersonB);
 
-        result = pearson = numeration / denominator;
-        return result;
-    }
-
-    /**
-     * Prints the Pearson of this class
-     */
-    public void printPearson() {
-        System.out.println("Pearson: " + this.pearson);
+        return mPearson = numeration / denominator;
     }
 }

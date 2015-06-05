@@ -48,6 +48,12 @@ public class User {
        return ratedItems.get(itemId);
     }
 
+    /**
+     * Check if user has rated a specific item
+     *
+     * @param itemId
+     * @return
+     */
     public boolean isRated(int itemId) {
         for (Map.Entry<Integer, Double> entry : ratedItems.entrySet()) {
             if (entry.getKey() == itemId) {

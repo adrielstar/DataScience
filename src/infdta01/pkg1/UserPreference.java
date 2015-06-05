@@ -1,8 +1,15 @@
+/**
+ * UserPreference class containing ratings associated to a user
+ *
+ * @author Isaac de Cuba (isaacjdecuba@gmail.com)
+ * @studentnr 0847325
+ * @since 05-06-2015
+ */
+
 package infdta01.pkg1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -68,18 +75,11 @@ public class UserPreference {
         this.addDetails(user, itemId, rating);
     }
 
-    public void printUsers() {
-        System.out.println("UserList size " + mUserPreference.size());
-        for (Map.Entry<Integer, User> entry : mUserPreference.entrySet()) {
-            System.out.println("index: " + entry.getKey() + " User Id: " + entry.getValue().getUserId());
-        }
-    }
-
     /**
      * Get user object from the mUserPreference TreeMap
      *
      * @param userId
-     * @return
+     * @return User
      */
     public User getUser(int userId) {
         return mUserPreference.get(userId);

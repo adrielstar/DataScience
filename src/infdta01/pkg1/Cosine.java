@@ -1,20 +1,22 @@
+/**
+ * Cosine class containing similarity calculation between two users
+ *
+ * @author Isaac de Cuba (isaacjdecuba@gmail.com)
+ * @studentnr 0847325
+ * @since 05-06-2015
+ */
 package infdta01.pkg1;
 
 import java.util.Map;
 
-/**
- *
- * @author isaacdecuba
- */
-public class Cosine {
-
-    private double cosine;
+public class Cosine implements Similarity {
 
     // persons to compare
     public double[] personA;
     public double[] personB;
 
-    public double calcCosine(Map<Integer, Double> personARatedItems, Map<Integer, Double> personBRatedItems) {
+    @Override
+    public double calculate(Map<Integer, Double> personARatedItems, Map<Integer, Double> personBRatedItems) {
 
         if (personARatedItems.size() > personBRatedItems.size()) {
             personA = new double[personARatedItems.size() + 1];
@@ -28,7 +30,6 @@ public class Cosine {
         double resultA = 0.0;
         double resultB = 0.0;
         double resultM = 0.0;
-        double result = 0.0;
 
         for (Map.Entry<Integer, Double> entry : personARatedItems.entrySet()) {
             resultA += personA[pos] = Math.pow(entry.getValue(), 2);
@@ -52,11 +53,6 @@ public class Cosine {
             resultM += personA[i] * personB[i];
         }
 
-        result = resultM / (resultA * resultB);
-        return cosine = result;
-    }
-
-    public double getCosine() {
-        return this.cosine;
+        return resultM / (resultA * resultB);
     }
 }
